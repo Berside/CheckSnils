@@ -7,6 +7,8 @@ g = '167-695 478-00'
 bv = '187-220-276 69'
 
 listSnilc = [a,b,c,d,g,bv]
+
+
 def Correct(str):
     pattern = re.compile(r'^\d{3}-\d{3}-\d{3} \d{2}$')
     lastTwo = str[-2:]
@@ -18,16 +20,17 @@ def Correct(str):
             total_sum = int(l[i]) * (9 - i) + total_sum
 
         if total_sum < 100 and total_sum == int(lastTwo):
-            print(str," ", "Correct")
+            return "Correct"
 
         if total_sum in (100, 101) and total_sum == int(lastTwo):
-            print(str," ", "Correct")
+            return "Correct"
 
         if total_sum > 101 and total_sum % 101 == int(lastTwo):
-            print(str," ", "Correct")
+            return "Correct"
+
+    return "Incorrect"
+
 
 for i in range(len(listSnilc)):
-    print(listSnilc[i], ":",  Correct(listSnilc[i]))
-print("Введите Снилс:")
-bab = input()
-Correct(bab)
+    result = Correct(listSnilc[i])
+    print(f'Номер СНИЛСа: {listSnilc[i]} --> {result}')
