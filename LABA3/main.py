@@ -27,4 +27,7 @@ def Correct(str):
             print(str," ", "Correct")
 
 for i in range(len(listSnilc)):
-    Correct(listSnilc[i])
+    print(listSnilc[i], ":",  Correct(listSnilc[i]))
+print("Введите Снилс:")
+bab = input()
+Correct(bab)
